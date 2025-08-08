@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: ticktick-mcp-server
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install --production
+    startCommand: npm start
+    rootDir: .
+    healthCheckPath: /health
+    envVars:
+      # Declare the OAuth variables here. Set their values via the Render dashboard or use secrets.
+      - key: OAUTH_CLIENT_ID
+        sync: false
+      - key: OAUTH_CLIENT_SECRET
+        sync: false
+      - key: OAUTH_AUTH_URL
+        sync: false
+      - key: OAUTH_TOKEN_URL
+        sync: false
+      - key: OAUTH_SCOPE
+        sync: false
+      - key: OAUTH_REDIRECT
+        sync: false
